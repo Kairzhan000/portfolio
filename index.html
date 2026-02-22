@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaiyrzhan | Portfolio</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/main.css">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <script src="./static/js/main.js" async></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="lang-switch">
+            <button id="lang-ru" class="active">RU</button>
+            <button id="lang-en">EN</button>
+        </div>
+        <nav class="main-nav">
+            <a href="#about" class="nav-logo">KAIYRZHAN</a>
+            
+       
+            <div class="burger-menu" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-overlay" id="menu">
+                <ul>
+                    <li><a href="#about">ОБО МНЕ</a></li>
+                    <li><a href="#project-1">WIN-BASKETBALL</a></li>
+                    <li><a href="#project-2">MATH TEACHER</a></li>
+                    <li><a href="#contact">КОНТАКТЫ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    
+    <main class="container">
+  
+        <section class="panel hero"  id="about">
+            <div class="hero-container">
+                <div class="hero-image">
+                    <img src="./static/img/ava-photo.png" alt="Kaiyrzhan"> <!-- Укажи путь к фото -->
+                </div>
+                
+                
+                <div class="hero-text">
+                    <span class="badge">Full-stack Developer</span>
+                    <h1 data-key="hero_title">Привет, я Кайыржан</h1>
+                    <p data-key="hero_desc">Создаю современные веб-интерфейсы с вниманием к деталям. Делаю упор на удобный интерфейс и всегда на связи</p>
+                    <div class="social-mini">
+                     <a href="https://github.com/Kairzhan000">GH</a> / <a href="https://wa.link/z0y94k">WH</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+         <section class="panel transition-section">
+            <div class="content">
+                <span data-key="portfolio" id="badge">Портфолио</span>
+                <h2 class="reveal-text">LET'S WATCH <br>MY PROJECTS</h2>
+                <div class="line"></div>
+            </div>
+        </section>
+
+      
+        <section class="panel case-study with-bg" id="project-1">
+      
+            <div class="project-bg-image"></div>
+            <div class="overlay"></div>
+            
+            <div class="content">
+                <span class="project-num">01</span>
+                <h2>WIN-BASKETBALL</h2>
+                <p data-key="project_1_desc">Сайт для баскетбольной организации города Актау.</p>
+                <div class="tags">
+                    <span>HTML</span> <span>SCSS</span> <span>JS</span><span>Tailwind CSS</span>
+                </div>
+                <a data-key="btn_view" href="https://w1n-basketball.netlify.app/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGntV0SL3kp6u24b_kt9lDFvbAlZ3f9LY4r6DoJ6hmczw5h6tLJ8v9sk8TNeNg_aem_Qu9OYfNMJQPeh53cj4J1kw" class="btn">Смотреть проект</a>
+            </div>
+        </section>
+
+
+    
+        <section class="panel case-study" id="project-2">
+            <div class="project-bg-image-second"></div>
+            <div class="overlay-second"></div>
+            <div class="content">
+                <span class="project-num">02</span>
+                <h2>Yerkhan-math teacher</h2>
+                <p data-key="second_project">Персональный сайт для репетитора по математике.</p>
+                <div class="tags">
+                    <span>HTML</span> <span>SCSS</span><span>JS</span>
+                </div>
+                <a href="https://yerkhan-repetitor.netlify.app/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnA-uYiwblsgH9FIZW41iadwkc6WxvhX67IZCxu8gYq18nxkDITaNS10mDemw_aem_47Hrjw_pVoLojHA2EYoGMw" class="btn" data-key="btn_view">Смотреть проект</a>
+            </div>
+        </section>
+
+   
+        <section class="panel contact">
+   
+            <div class="contact-bg-image">
+                <img src="./static/img/heart.png" alt="Kaiyrzhan Background">
+            </div>
+    
+            <div class="content" id="contact">
+                <h2 data-key="contact_title">Давай работать вместе</h2>
+                <p data-key="footer">Открыт для новых предложений и крутых проектов.</p>
+                <div class="social-links">
+                    <a href="https://github.com/Kairzhan000">GitHub</a>
+                    <a href="https://wa.link/z0y94k">Whatsapp</a>
+                    <a href="https://www.instagram.com/berkaliyev.km?igsh=eTBhYjR0Y2FzOXAy">instagram</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

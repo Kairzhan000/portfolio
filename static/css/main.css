@@ -1,0 +1,414 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0d1117;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. ГЛАВНЫЙ КОНТЕЙНЕР И ПАНЕЛИ */
+.container {
+    width: 100%;
+}
+
+h1, h2, .nav-logo, .nav-overlay a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* Фиксированная высота для стабильности */
+    z-index: 9999; /* Выше всех проектов */
+    background: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between; /* Лого слева, Бургер справа */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Отступы от краев экрана */
+}
+
+.nav-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem; /* Чуть меньше для мобилок */
+    color: #fff;
+    text-decoration: none;
+    z-index: 10001; /* Чтобы лого было видно над меню */
+}
+
+
+.burger-menu {
+    width: 30px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 10001; /* Чтобы кнопка была над меню */
+    position: relative;
+}
+
+.burger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    transition: 0.3s;
+}
+
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Прячем за экран */
+    width: 100%;
+    height: 100vh;
+    background: #0d1117;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease-in-out;
+}
+
+.nav-overlay.active {
+    right: 0; /* Выезжает при нажатии */
+}
+
+.nav-overlay ul {
+    list-style: none;
+    text-align: center;
+}
+
+.nav-overlay ul li {
+    margin: 20px 0;
+}
+
+.nav-overlay ul li a {
+    font-size: clamp(2rem, 8vw, 4rem); /* Жирный и огромный шрифт */
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.2); /* Тонкий контур */
+}
+
+.nav-overlay ul li a:hover {
+    color: #58a6ff;
+    -webkit-text-stroke: 1px #58a6ff;
+}
+
+
+.burger-menu.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.burger-menu.active span:nth-child(2) { opacity: 0; }
+.burger-menu.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+
+.panel {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    overflow: hidden;
+}
+
+
+.hero { z-index: 1; background-color: #0d1117; }
+.transition-section { z-index: 2; background-color: #0d1117; }
+.case-study#project-1 { z-index: 3; background-color: #161b22; }
+.case-study#project-2 { z-index: 4; background-color: #010409; }
+.contact { z-index: 5; background-color: #000000;position: sticky;overflow: hidden;background-color: #000;}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.hero-image img {
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    filter: grayscale(20%);
+    transition: 0.5s ease;
+}
+
+.hero-image img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.hero-text {
+    text-align: left;
+    max-width: 500px;
+}
+
+/* 4. СЕКЦИИ ПРОЕКТОВ (CASE STUDIES) */
+.content {
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+}
+
+.project-bg-image, 
+.project-bg-image-second {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(2px) brightness(0.3);
+    transition: transform 0.8s ease, filter 0.5s ease;
+    z-index: 1;
+}
+
+.project-bg-image { background-image: url('../img/win.jpg'); }
+.project-bg-image-second { background-image: url('../img/yerkhab-image.png'); }
+
+.overlay, .overlay-second {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.overlay { background: linear-gradient(180deg, rgba(13,17,23,0.7) 0%, rgba(0,0,0,0.9) 100%); }
+.overlay-second { background: linear-gradient(180deg, rgba(47,49,52,0.7) 0%, rgba(17,17,17,0.9) 100%); }
+
+.case-study:hover .project-bg-image,
+.case-study:hover .project-bg-image-second {
+    transform: scale(1.05);
+    filter: blur(0px) brightness(0.4);
+}
+
+/* 5. TRANSITION SECTION */
+.transition-section h2 {
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: #ffffff;
+    animation: textPulse 3s infinite ease-in-out;
+}
+
+.line {
+    width: 80px;
+    height: 4px;
+    background-color: #58a6ff;
+    margin: 30px auto;
+    border-radius: 2px;
+}
+
+@keyframes textPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.02); opacity: 0.8; }
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 3.5rem); line-height: 1.1; margin-bottom: 1rem; }
+h2 { font-size: clamp(2rem, 6vw, 3rem); margin-bottom: 1rem; text-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+
+.badge {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    color: #58a6ff;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.project-num {
+    font-size: 5rem;
+    font-weight: 700;
+    opacity: 0.1;
+    display: block;
+    margin-bottom: -2rem;
+}
+
+.tags span {
+    display: inline-block;
+    margin: 5px;
+    padding: 6px 16px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(5px);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 12px 32px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn:hover { background-color: #ffffff; color: #0d1117; }
+
+.social-mini a, .social-links a { color: #58a6ff; text-decoration: none; font-weight: bold; transition: 0.3s; }
+.social-links a { font-size: 1.2rem; margin: 0 15px; }
+
+
+.contact .content {
+    position: relative;
+    z-index: 2;
+}
+.contact-bg-image {
+    position: absolute;
+    bottom: -5%;  /* Слегка "выходит" за экран снизу */
+    right: -5%;   /* Слегка "выходит" за экран справа */
+    width: 500px; /* Размер фото на фоне */
+    height: auto;
+    opacity: 0.2; /* Делаем очень прозрачным */
+    filter: grayscale(100%) blur(2px); /* Черно-белое и легкий блюр */
+    pointer-events: none; /* Чтобы фото не мешало кликать по ссылкам */
+    z-index: 1;
+    transform: rotate(-5deg); /* Слегка наклоним для динамики */
+}
+
+.contact-bg-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+.contact .content {
+    position: relative;
+    z-index: 10;
+}
+
+.lang-switch {
+    display: flex;
+
+    padding-left: 20px;
+    gap: 10px;
+    
+    z-index: 10002; 
+}
+
+.lang-switch button {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    transition: 0.3s;
+}
+
+.lang-switch button.active {
+    background: #58a6ff;
+    border-color: #58a6ff;
+}
+
+@media (max-width: 768px) {
+    .hero-container { flex-direction: column; text-align: center; gap: 30px; }
+    .hero-text { text-align: center; }
+    .hero-image img { width: 280px; height: 280px; border-radius: 50%; }
+    .project-bg-image-second { background-position: 20% center; }
+    .transition-section h2 { font-size: 3rem; }
+    h1 { font-size: 2.5rem; }
+    .contact-bg-image {
+        width: 300px; /* Уменьшаем на телефоне */
+        bottom: 0;
+        right: -10%;
+        opacity: 0.15;
+    }
+    .main-nav {
+        display: flex !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+    }
+
+ 
+    .nav-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100dvh !important; /* Учитывает высоту с адресной строкой */
+        background: #0d1117 !important; /* Плотный фон, чтобы не просвечивало */
+        z-index: 9999 !important; /* Выше всех секций */
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        transform: translateX(100%); /* По умолчанию скрыто */
+        transition: transform 0.5s ease;
+    }
+
+    .nav-overlay.active {
+        transform: translateX(0) !important;
+    }
+
+ 
+    .nav-overlay ul li a {
+        font-size: 2.5rem !important; /* Огромный жирный шрифт */
+        color: #ffffff !important;
+        display: block !important;
+        margin: 15px 0 !important;
+        text-align: center !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .burger-menu, .nav-logo {
+        position: relative !important;
+        z-index: 10000 !important; /* Самый высокий слой */
+    }
+
+
+    .burger-menu {
+        margin-left: auto !important;
+    }
+    .lang-switch {
+        padding-left: 1em;
+        margin-right: 10px;
+    }
+}
