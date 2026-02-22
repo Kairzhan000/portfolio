@@ -37,7 +37,7 @@ langButtons.forEach(btn => {
 });
 const translations = {
     ru: {
-        hero_title: "Привет, я Кайржан",
+        hero_title: "Привет, я Кайыржан",
         hero_desc: "Создаю современные веб-интерфейсы с вниманием к деталям.",
         portfolio: "Портфолио",
         btn_view: "Смотреть проект",
